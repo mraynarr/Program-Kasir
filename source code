@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
-package tugas2.kasir.beras.sederhana;
+package tugas2.kasir.beras.sederhana; 
 
 import java.util.Scanner;
 import java.text.NumberFormat;
