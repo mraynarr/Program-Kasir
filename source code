@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
-package tugas2.kasir.beras.sederhana; 
+package tugas2.kasir.beras.sederhana;
 
 import java.util.Scanner;
 import java.text.NumberFormat;
@@ -16,38 +16,47 @@ public class Tugas2KasirBerasSederhana {
         
         // deklarasi variabel
         double harga_beras, total_harga, harga_after, diskon, jumlah_beli, uang_bayar, uang_kembalian;
-        harga_beras = 14000;
         diskon = 5.0 / 100;
           
         // format rupiah
         NumberFormat rupiahFormat = NumberFormat.getCurrencyInstance(new Locale("id", "ID"));
         
-        System.out.println("-- Program Kasir Warung Beras Sederhana --");
+        System.out.println("- - - Program Kasir Warung Beras Sederhana - - -");
 
-        // user input jumlah beli dalam satuan kg
-        System.out.print("\nMasukkan jumlah beli (kg): ");
-        jumlah_beli = scanner.nextDouble(); // Inisialisasi jumlah beli
+        // input jumlah beli dalam satuan (kg) dan harga beras
+        System.out.print("\nMasukkan jumlah beli (kg)  : ");
+        jumlah_beli = scanner.nextDouble();
+        System.out.print("Masukkan harga beras (per kg): Rp");
+        harga_beras = scanner.nextDouble();
+        System.out.println("\n- - - - - - - - - - - - - - - - - - - - - - - -\n");
 
-        // proses emnghitung total harga
+        // proses menghitung total harga
         total_harga = harga_beras * jumlah_beli;
         harga_after = total_harga - (total_harga * diskon) ;
         
+        // format rupiah
+        String formattedHarga = rupiahFormat.format(harga_beras);
         String formattedRupiah = rupiahFormat.format(total_harga);
         String formattedDiskon = rupiahFormat.format(harga_after);
 
-        // output total harga
-        System.out.println("Total harga: " + formattedRupiah);
-        System.out.println("Mendapatkan diskon " + (diskon*100) + "% menjadi : " +formattedDiskon);
+        // output harga dan diskon
+        System.out.printf("Harga Beras           :\t%s\n", formattedHarga);
+        System.out.printf("Jumlah beli (kg)      :\t%.2f\n", jumlah_beli);
+        System.out.printf("Total harga           :\t%s\n", formattedRupiah);
+        System.out.printf("Mendapatkan diskon %.0f%% menjadi :\t%s\n", diskon * 100, formattedDiskon);
+        System.out.println("\n- - - - - - - - - - - - - - - - - - - - - - - -\n");
         
-        // user input uang bayar
-        System.out.print("\nMasukkan jumlah uang yang dibayarkan: ");
+        // input uang bayar
+        System.out.print("Masukkan jumlah uang yang dibayarkan : Rp");
         uang_bayar = scanner.nextDouble();
         
         // proses menghitung uang kembalian
         uang_kembalian = uang_bayar - harga_after;
         String formattedKembalian = rupiahFormat.format(uang_kembalian);
         
-        System.out.println("Uang kembalian: " + formattedKembalian + "\n----------------------------------------");
+        System.out.printf("Uang kembalian : " + formattedKembalian);
+        System.out.println("\n- - - - - - - - - - - - - - - - - - - - - - - -");
     }
-}
+}   
+
 
